@@ -1,0 +1,7 @@
+project_id = "oxkqakeambhbpvkjhzbs"
+
+[functions.chat]
+verify_jwt = false
+
+[functions.import-anaf-data]
+verify_jwt = false

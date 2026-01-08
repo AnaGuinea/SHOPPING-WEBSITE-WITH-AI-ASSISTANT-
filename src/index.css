@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, organic color palette for local commerce */
+    --background: 40 33% 98%;
+    --foreground: 25 30% 15%;
+
+    --card: 40 40% 97%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 40 40% 97%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Terracotta/Orange - warm, inviting primary */
+    --primary: 24 85% 55%;
+    --primary-foreground: 40 33% 98%;
+    --primary-glow: 24 85% 70%;
+
+    /* Sage green - natural, eco-friendly secondary */
+    --secondary: 145 25% 88%;
+    --secondary-foreground: 145 40% 25%;
+
+    /* Warm cream muted tones */
+    --muted: 35 30% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - golden honey */
+    --accent: 38 90% 60%;
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 24 85% 55%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(24 85% 55% / 0.1), hsl(38 90% 60% / 0.15), hsl(145 25% 88% / 0.2));
+    --gradient-card: linear-gradient(180deg, hsl(40 40% 97%), hsl(35 30% 95%));
+    --gradient-accent: linear-gradient(135deg, hsl(24 85% 55%), hsl(38 90% 60%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -6px hsl(25 30% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(24 85% 55% / 0.2);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Sidebar tokens */
+    --sidebar-background: 40 33% 98%;
+    --sidebar-foreground: 25 30% 15%;
+    --sidebar-primary: 24 85% 55%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 35 30% 92%;
+    --sidebar-accent-foreground: 25 30% 15%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 24 85% 55%;
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 40 33% 95%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 40 33% 95%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 40 33% 95%;
+
+    --primary: 24 85% 55%;
+    --primary-foreground: 40 33% 98%;
+    --primary-glow: 24 85% 65%;
+
+    --secondary: 145 20% 18%;
+    --secondary-foreground: 145 30% 80%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 38 80% 50%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 24 85% 55%;
+
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 40 33% 95%;
+    --sidebar-primary: 24 85% 55%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 25 20% 15%;
+    --sidebar-accent-foreground: 40 33% 95%;
+    --sidebar-border: 25 20% 18%;
+    --sidebar-ring: 24 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
